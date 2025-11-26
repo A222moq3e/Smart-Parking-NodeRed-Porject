@@ -26,9 +26,9 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 360,
+        "payload": "Hello, Now Time",
+        "payloadType": "str",
+        "x": 340,
         "y": 340,
         "wires": [
             [
@@ -51,5 +51,34 @@
         "x": 860,
         "y": 340,
         "wires": []
+    },
+    {
+        "id": "9675b87a1da76fd7",
+        "type": "inject",
+        "z": "e428fb15a569b7f7",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 340,
+        "y": 420,
+        "wires": [
+            [
+                "2daea68481f468f7"
+            ]
+        ]
     }
 ]
