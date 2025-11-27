@@ -8,6 +8,13 @@
         "env": []
     },
     {
+        "id": "8bd1bbca78908923",
+        "type": "tab",
+        "label": "Smart Parking",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "e5d7b0fc42f48a1a",
         "type": "ui-base",
         "name": "My Dashboard",
@@ -30,10 +37,10 @@
     {
         "id": "d365964e9c84c94f",
         "type": "ui-theme",
-        "name": "Default Theme",
+        "name": "old Theme",
         "colors": {
             "surface": "#ffffff",
-            "primary": "#0094CE",
+            "primary": "#0094ce",
             "bgPage": "#eeeeee",
             "groupBg": "#ffffff",
             "groupOutline": "#cccccc"
@@ -97,233 +104,358 @@
         "groupType": "default"
     },
     {
-        "id": "2daea68481f468f7",
-        "type": "debug",
-        "z": "e428fb15a569b7f7",
-        "name": "debug 1",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 760,
-        "y": 140,
-        "wires": []
+        "id": "ui-theme-1",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#0a0f26",
+            "primary": "#0a0f26",
+            "bgPage": "#f5f5f5",
+            "groupBg": "#ffffff",
+            "groupOutline": "#f5f5f5"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
     },
     {
-        "id": "9675b87a1da76fd7",
-        "type": "inject",
-        "z": "e428fb15a569b7f7",
-        "name": "",
-        "props": [
+        "id": "bcce39f2a5299ad7",
+        "type": "ui-page",
+        "name": "Smart Parking",
+        "ui": "e5d7b0fc42f48a1a",
+        "path": "/smart-parking",
+        "icon": "directions_car",
+        "layout": "grid",
+        "theme": "ui-theme-1",
+        "order": 2,
+        "className": "",
+        "visible": true,
+        "disabled": false
+    },
+    {
+        "id": "bbd327fd7354cbbb",
+        "type": "ui-group",
+        "name": "Overview",
+        "page": "bcce39f2a5299ad7",
+        "width": "6",
+        "height": "1",
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "e104b492835a40fd",
+        "type": "ui-group",
+        "name": "Spots Grid",
+        "page": "bcce39f2a5299ad7",
+        "width": "6",
+        "height": "1",
+        "order": 2,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "3b70cb3696799d7e",
+        "type": "ui-group",
+        "name": "Event Log",
+        "page": "bcce39f2a5299ad7",
+        "width": "6",
+        "height": "1",
+        "order": 4,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "6486606bcd5296d1",
+        "type": "ui-group",
+        "name": "Controls",
+        "page": "bcce39f2a5299ad7",
+        "width": "6",
+        "height": "1",
+        "order": 3,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "6e8db589385902c2",
+        "type": "ui-gauge",
+        "z": "8bd1bbca78908923",
+        "name": "Occupancy",
+        "group": "bbd327fd7354cbbb",
+        "order": 1,
+        "value": "payload",
+        "valueType": "msg",
+        "width": "6",
+        "height": "3",
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Occupied Spots",
+        "alwaysShowTitle": false,
+        "units": "spots",
+        "icon": "directions_car",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
             {
-                "p": "payload"
+                "from": "0",
+                "color": "#43a047",
+                "text": "",
+                "textType": "label"
             },
             {
-                "p": "topic",
-                "vt": "str"
+                "from": "2",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "3",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
             }
         ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 160,
-        "y": 140,
+        "min": 0,
+        "max": 3,
+        "sizeThickness": 16,
+        "sizeGap": "4",
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 870,
+        "y": 20,
         "wires": [
-            [
-                "651c6f5f5aae7868"
-            ]
+            []
         ]
     },
     {
-        "id": "651c6f5f5aae7868",
-        "type": "http request",
-        "z": "e428fb15a569b7f7",
-        "name": "",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "https://jsonplaceholder.typicode.com/todos/2",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "insecureHTTPParser": false,
-        "authType": "",
-        "senderr": false,
-        "headers": [],
-        "x": 370,
-        "y": 140,
-        "wires": [
-            [
-                "2daea68481f468f7",
-                "13ed8113e1115b67",
-                "9e40d5ff40921e6d"
-            ]
-        ]
-    },
-    {
-        "id": "d5c26eb5ec9beaf1",
+        "id": "2ed3be02e89e7914",
         "type": "ui-text",
-        "z": "e428fb15a569b7f7",
-        "group": "d6b931b5f6666cc0",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "userId",
+        "z": "8bd1bbca78908923",
+        "group": "e104b492835a40fd",
+        "order": 4,
+        "width": "6",
+        "height": "2",
+        "name": "Available Spots",
+        "label": "Available Spots",
         "format": "{{msg.payload}}",
-        "layout": "row-spread",
+        "layout": "col-center",
         "style": false,
         "font": "",
         "fontSize": 16,
-        "color": "#717171",
+        "color": "#000000",
         "wrapText": false,
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 830,
-        "y": 280,
+        "x": 890,
+        "y": 80,
         "wires": []
     },
     {
-        "id": "466e8a40d209e26a",
+        "id": "0b500708cfd8e488",
         "type": "ui-text",
-        "z": "e428fb15a569b7f7",
-        "group": "d6b931b5f6666cc0",
+        "z": "8bd1bbca78908923",
+        "group": "bbd327fd7354cbbb",
         "order": 2,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "title",
+        "width": 6,
+        "height": 1,
+        "name": "Summary",
+        "label": "Summary",
         "format": "{{msg.payload}}",
-        "layout": "row-spread",
+        "layout": "row-center",
         "style": false,
         "font": "",
+        "fontSize": 14,
+        "color": "#333333",
+        "wrapText": true,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 740,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "98b56af37ea6f1a5",
+        "type": "ui-text",
+        "z": "8bd1bbca78908923",
+        "group": "e104b492835a40fd",
+        "order": 1,
+        "width": 2,
+        "height": "2",
+        "name": "Spot 1",
+        "label": "Spot 1",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "style": true,
+        "font": "",
         "fontSize": 16,
-        "color": "#717171",
+        "color": "#000000",
         "wrapText": false,
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 830,
-        "y": 340,
+        "x": 890,
+        "y": 180,
         "wires": []
     },
     {
-        "id": "9e40d5ff40921e6d",
-        "type": "change",
-        "z": "e428fb15a569b7f7",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload.userId",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 640,
-        "y": 280,
-        "wires": [
-            [
-                "d5c26eb5ec9beaf1",
-                "0f611fd1aa3a651f"
-            ]
-        ]
-    },
-    {
-        "id": "13ed8113e1115b67",
-        "type": "change",
-        "z": "e428fb15a569b7f7",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload.title",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 640,
-        "y": 340,
-        "wires": [
-            [
-                "466e8a40d209e26a",
-                "e67c319ec6ec3e8e"
-            ]
-        ]
-    },
-    {
-        "id": "0f611fd1aa3a651f",
-        "type": "debug",
-        "z": "e428fb15a569b7f7",
-        "name": "debug 2",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 800,
-        "y": 200,
+        "id": "3bd7c18e520021b6",
+        "type": "ui-text",
+        "z": "8bd1bbca78908923",
+        "group": "e104b492835a40fd",
+        "order": 2,
+        "width": 2,
+        "height": "2",
+        "name": "Spot 2",
+        "label": "Spot 2",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "style": true,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 890,
+        "y": 220,
         "wires": []
     },
     {
-        "id": "e67c319ec6ec3e8e",
-        "type": "debug",
-        "z": "e428fb15a569b7f7",
-        "name": "debug 3",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 820,
+        "id": "7ae59f547064694e",
+        "type": "ui-text",
+        "z": "8bd1bbca78908923",
+        "group": "e104b492835a40fd",
+        "order": 3,
+        "width": 2,
+        "height": "2",
+        "name": "Spot 3",
+        "label": "Spot 3",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "style": true,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 890,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "e9589bfa02be84b7",
+        "type": "ui-table",
+        "z": "8bd1bbca78908923",
+        "group": "3b70cb3696799d7e",
+        "name": "Event Table",
+        "label": "Last Events",
+        "order": 1,
+        "width": "0",
+        "height": "0",
+        "maxrows": "10",
+        "autocols": true,
+        "showSearch": false,
+        "deselect": true,
+        "selectionType": "none",
+        "columns": [
+            {
+                "title": "Event",
+                "key": "Event",
+                "keyType": "key",
+                "type": "text",
+                "width": "",
+                "align": "start"
+            }
+        ],
+        "mobileBreakpoint": "sm",
+        "mobileBreakpointType": "defaults",
+        "action": "replace",
+        "className": "",
+        "x": 970,
         "y": 400,
-        "wires": []
+        "wires": [
+            []
+        ]
     },
     {
-        "id": "69da30c0bf6ec782",
+        "id": "17c72aa0a3941ac8",
+        "type": "function",
+        "z": "8bd1bbca78908923",
+        "name": "Update Parking State",
+        "func": "const TOTAL_SPOTS = 3;\n\nlet state = flow.get(\"parkingState\") || {\n    total: TOTAL_SPOTS,\n    occupied: 0,\n    spots: { 1: false, 2: false, 3: false },\n    events: []\n};\n\nconst now    = new Date();\nconst action = msg.payload?.action;\nconst spot   = msg.payload?.spot;\n\nlet eventText = 'Invalid Action';\n\nif (action === \"enter\" && spot) {\n    if (!state.spots[spot]) {\n        state.spots[spot] = true;\n        state.occupied++;\n        eventText = `Spot ${spot} ENTER`;\n    }\n} else if (action === \"leave\" && spot) {\n    if (state.spots[spot]) {\n        state.spots[spot] = false;\n        state.occupied--;\n        eventText = `Spot ${spot} LEAVE`;\n    }\n} else if (action === \"reset\") {\n    state.spots = { 1: false, 2: false, 3: false };\n    state.occupied = 0;\n    eventText = \"RESET ALL\";\n}\n\n// clamp\nif (state.occupied < 0) state.occupied = 0;\nif (state.occupied > state.total) state.occupied = state.total;\n\n// store structured event\nif (eventText) {\n    state.events.unshift({\n        time: now.toLocaleTimeString(),\n        event: eventText\n    });\n}\n\nflow.set(\"parkingState\", state);\n// --- BUILD UI MESSAGES ---\nconst available = state.total - state.occupied;\n\nconst gaugeMsg     = { payload: state.occupied };\nconst availableMsg = { payload: `${available} available / ${state.total} total` };\n\nfunction spotMsg(spotIndex) {\n    const occupied   = state.spots[spotIndex];\n    const statusText = occupied ? \"OCCUPIED\" : \"AVAILABLE\";\n    const color = occupied ? \"#e53935\" : \"#43a047\"; // red / green\n\n    return {\n        payload: statusText,\n        ui_update: {\n            color: color       // dashboard v2 will use this for the value text\n        }\n    };\n}\n\nconst spot1Msg = spotMsg(1);\nconst spot2Msg = spotMsg(2);\nconst spot3Msg = spotMsg(3);\n\nconst summaryMsg = {\n    payload: `Total spots: ${state.total} | Occupied: ${state.occupied} | Available: ${available}`\n};\n\nconst logRows = state.events.map(e => ({\n    Time: e.time,\n    Event: e.event\n}));\nconst logMsg = { payload: logRows };\n\nreturn [gaugeMsg, availableMsg, spot1Msg, spot2Msg, spot3Msg, logMsg, summaryMsg];\n",
+        "outputs": 7,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 200,
+        "wires": [
+            [
+                "6e8db589385902c2"
+            ],
+            [
+                "2ed3be02e89e7914"
+            ],
+            [
+                "98b56af37ea6f1a5"
+            ],
+            [
+                "3bd7c18e520021b6"
+            ],
+            [
+                "7ae59f547064694e"
+            ],
+            [
+                "e9589bfa02be84b7",
+                "1aa0c2826ed625b3"
+            ],
+            [
+                "0b500708cfd8e488"
+            ]
+        ]
+    },
+    {
+        "id": "dba38eac2df6691c",
         "type": "ui-button",
-        "z": "e428fb15a569b7f7",
-        "group": "d6b931b5f6666cc0",
+        "z": "8bd1bbca78908923",
+        "group": "6486606bcd5296d1",
         "name": "",
-        "label": "Fetch Data",
-        "order": 0,
-        "width": 0,
-        "height": 0,
+        "label": "SPOT 1 ENTER",
+        "order": 1,
+        "width": 3,
+        "height": 1,
         "emulateClick": false,
         "tooltip": "",
         "color": "",
         "bgcolor": "",
         "className": "",
-        "icon": "",
+        "icon": "login",
         "iconPosition": "left",
         "payload": "",
         "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
+        "topic": "",
+        "topicType": "str",
         "buttonColor": "",
         "textColor": "",
         "iconColor": "",
@@ -334,12 +466,500 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 170,
-        "y": 180,
+        "x": 120,
+        "y": 140,
         "wires": [
             [
-                "651c6f5f5aae7868"
+                "df5f71a9385cd2be"
             ]
+        ]
+    },
+    {
+        "id": "df5f71a9385cd2be",
+        "type": "change",
+        "z": "8bd1bbca78908923",
+        "name": "Spot 1 Enter payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"action\":\"enter\",\"spot\":1}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 140,
+        "wires": [
+            [
+                "17c72aa0a3941ac8"
+            ]
+        ]
+    },
+    {
+        "id": "49b0fe317e3a3862",
+        "type": "ui-button",
+        "z": "8bd1bbca78908923",
+        "group": "6486606bcd5296d1",
+        "name": "",
+        "label": "SPOT 1 LEAVE",
+        "order": 2,
+        "width": 3,
+        "height": 1,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "logout",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 130,
+        "y": 200,
+        "wires": [
+            [
+                "627701514ca93c0f"
+            ]
+        ]
+    },
+    {
+        "id": "627701514ca93c0f",
+        "type": "change",
+        "z": "8bd1bbca78908923",
+        "name": "Spot 1 Leave payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"action\":\"leave\",\"spot\":1}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 340,
+        "y": 200,
+        "wires": [
+            [
+                "17c72aa0a3941ac8"
+            ]
+        ]
+    },
+    {
+        "id": "1a10eb34589ed7db",
+        "type": "ui-button",
+        "z": "8bd1bbca78908923",
+        "group": "6486606bcd5296d1",
+        "name": "",
+        "label": "SPOT 2 ENTER",
+        "order": 3,
+        "width": 3,
+        "height": 1,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "login",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 110,
+        "y": 240,
+        "wires": [
+            [
+                "089ca85ce1aaad4b"
+            ]
+        ]
+    },
+    {
+        "id": "089ca85ce1aaad4b",
+        "type": "change",
+        "z": "8bd1bbca78908923",
+        "name": "Spot 2 Enter payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"action\":\"enter\",\"spot\":2}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 340,
+        "y": 240,
+        "wires": [
+            [
+                "17c72aa0a3941ac8"
+            ]
+        ]
+    },
+    {
+        "id": "8a92bad220c0c686",
+        "type": "ui-button",
+        "z": "8bd1bbca78908923",
+        "group": "6486606bcd5296d1",
+        "name": "",
+        "label": "SPOT 2 LEAVE",
+        "order": 4,
+        "width": 3,
+        "height": 1,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "logout",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 130,
+        "y": 270,
+        "wires": [
+            [
+                "3b4ff250e6c1d662"
+            ]
+        ]
+    },
+    {
+        "id": "3b4ff250e6c1d662",
+        "type": "change",
+        "z": "8bd1bbca78908923",
+        "name": "Spot 2 Leave payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"action\":\"leave\",\"spot\":2}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 340,
+        "y": 270,
+        "wires": [
+            [
+                "17c72aa0a3941ac8"
+            ]
+        ]
+    },
+    {
+        "id": "5c134084373e752d",
+        "type": "ui-button",
+        "z": "8bd1bbca78908923",
+        "group": "6486606bcd5296d1",
+        "name": "",
+        "label": "SPOT 3 ENTER",
+        "order": 5,
+        "width": 3,
+        "height": 1,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "login",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 110,
+        "y": 310,
+        "wires": [
+            [
+                "eef97cd30953744d"
+            ]
+        ]
+    },
+    {
+        "id": "eef97cd30953744d",
+        "type": "change",
+        "z": "8bd1bbca78908923",
+        "name": "Spot 3 Enter payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"action\":\"enter\",\"spot\":3}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 340,
+        "y": 310,
+        "wires": [
+            [
+                "17c72aa0a3941ac8"
+            ]
+        ]
+    },
+    {
+        "id": "b3f5274d7009b103",
+        "type": "ui-button",
+        "z": "8bd1bbca78908923",
+        "group": "6486606bcd5296d1",
+        "name": "",
+        "label": "SPOT 3 LEAVE",
+        "order": 6,
+        "width": 3,
+        "height": 1,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "logout",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 130,
+        "y": 340,
+        "wires": [
+            [
+                "87e9546ac12d15f2"
+            ]
+        ]
+    },
+    {
+        "id": "87e9546ac12d15f2",
+        "type": "change",
+        "z": "8bd1bbca78908923",
+        "name": "Spot 3 Leave payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"action\":\"leave\",\"spot\":3}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 340,
+        "y": 340,
+        "wires": [
+            [
+                "17c72aa0a3941ac8"
+            ]
+        ]
+    },
+    {
+        "id": "49a270f55cb2239b",
+        "type": "ui-button",
+        "z": "8bd1bbca78908923",
+        "group": "6486606bcd5296d1",
+        "name": "",
+        "label": "RESET ALL",
+        "order": 7,
+        "width": 6,
+        "height": 1,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "refresh",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 140,
+        "y": 380,
+        "wires": [
+            [
+                "fecafb9bc3776d33"
+            ]
+        ]
+    },
+    {
+        "id": "fecafb9bc3776d33",
+        "type": "change",
+        "z": "8bd1bbca78908923",
+        "name": "Reset payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"action\":\"reset\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 360,
+        "y": 380,
+        "wires": [
+            [
+                "17c72aa0a3941ac8"
+            ]
+        ]
+    },
+    {
+        "id": "f84b978e7754374d",
+        "type": "inject",
+        "z": "8bd1bbca78908923",
+        "name": "Init on Deploy",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.2,
+        "topic": "",
+        "payload": "{\"action\":\"reset\"}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 80,
+        "wires": [
+            [
+                "17c72aa0a3941ac8"
+            ]
+        ]
+    },
+    {
+        "id": "1aa0c2826ed625b3",
+        "type": "debug",
+        "z": "8bd1bbca78908923",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 960,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "329312555825e889",
+        "type": "ui-template",
+        "z": "8bd1bbca78908923",
+        "group": "",
+        "page": "",
+        "ui": "e5d7b0fc42f48a1a",
+        "name": "Title Styling",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<style>\n\n/* Group titles (Overview, Spots Grid, Controls, Event Log) */\n.v-card-title {\n    color: #0A0F26;\n    /* your title color */\n    font-weight: 600;\n    /* optional */\n}\n\n/* Top bar title (Smart Parking) – optional */\nheader .v-toolbar__title {\n    color: #ffffff;\n}\n\n</style>",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "widget:ui",
+        "className": "",
+        "x": 570,
+        "y": 480,
+        "wires": [
+            []
         ]
     }
 ]
